@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int n,L;
+	int n, L;
 	char str[] = "Last digit of";
 
 	srand(time(0));
