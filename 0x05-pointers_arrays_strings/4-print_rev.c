@@ -9,7 +9,6 @@
 
 void print_rev(char *s)
 {
-
 	int fcounter = 0;
 	int i, n;
 
@@ -17,7 +16,6 @@ void print_rev(char *s)
 	{
 		fcounter++;
 	}
-	
 	for (n = (fcounter - 1); n >= 0; n--)
 	{
 		_putchar(s[n]);
