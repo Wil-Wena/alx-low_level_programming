@@ -1,51 +1,33 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to print
- * Return: Nothing.
+ *_strdup - copies the string given as parameter
+ * @str: string to duplicate
+ * Return: pointer to the copied string (Success), NULL (Error)
  */
-void simple_print_buffer(char *buffer, unsigned int size)
+
+char *_strdup(char *str)
 {
-	unsigned int i;
+
+	char *duplicate;
+	unsigned int i, len;
+
 	i = 0;
+	len = 0;
 
-	while (i < size)
-	{
-		if (i % 10)
-		{
-			printf(" ");
-		}
-		if (!(i % 10) && i)
-		{
-			printf("\n");
-		}
-		printf("0x%02x", buffer[i]);
+	if (str == NULL)
+		return (NULL);
+
+	while (str[len])
+		len++;
+	duplicate = malloc(sizeof(char) * (len + 1));
+
+	if (duplicate == NULL)
+		return (NULL);
+
+	while ((duplicate[i] = str[i]) != '\0')
 		i++;
-	}
-	printf("\n");
-}
 
-
-/**
- * main - check the code for Holberton School students.
- * Return: Always 0.
- */
-
-int main(void)
-{
-	char *buffer;
-
-	buffer = create_array(98, 'H');
-	if  (buffer == NULL)
-	{
-		printf("failed to allocate memory\n");
-		return (1);
-	}
-	simple_print_buffer(buffer, 98);
-	free(buffer);
-	return (0);
+	return (duplicate);
 }
